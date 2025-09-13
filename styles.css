@@ -59,6 +59,9 @@ h1 {
 
 .container {
     background: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .header, .content, .footer {
@@ -102,6 +105,7 @@ h1 {
 
 .content {
     background-color: white;
+    flex: 1;
 }
 
 .services, .works {
