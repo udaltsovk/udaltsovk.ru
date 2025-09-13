@@ -86,8 +86,10 @@ h1 {
 
 .header__preview {
     margin-top: 1.25rem;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-column-gap: 1rem;
+
 }
 
 .intro__description {
@@ -96,7 +98,6 @@ h1 {
 
 .header__slider {
     background-color: gray;
-    width: 60%;
     height: 6rem;
     display: flex;
     justify-content: center;
@@ -114,7 +115,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 1rem;
-    padding: 0rem 6rem;
+    padding: 0rem 6rem;;
 }
 
 .project__item {
@@ -147,4 +148,10 @@ h1 {
 .footer__links {
     display: flex;
     gap: 1rem;
+}
+
+@media (max-width: 750px) {
+    .projects {
+        grid-template-columns: 1fr 1fr;
+    }
 }
