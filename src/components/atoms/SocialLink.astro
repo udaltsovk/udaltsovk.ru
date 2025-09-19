@@ -1,0 +1,29 @@
+---
+type Props = {
+	href: string,
+	name: string,
+	description: string
+};
+
+const { href, name, description } = Astro.props;
+
+const { default: SVGIcon } = await import(`../../assets/icons/${name}.svg?raw`);
+---
+
+<a href={href} target="_blank">
+	<span class="sr-only">{description}</span>
+	<Fragment set:html={SVGIcon}/>
+</a>
+
+
+<style>
+	a {
+		display: flex;
+		color: var(--ctp-mocha-subtext0);
+		transition: color 0.5s ease-out;
+	}
+
+	a:hover {
+		color: var(--ctp-mocha-accent);
+	}
+</style>

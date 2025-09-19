@@ -1,0 +1,17 @@
+---
+import SocialLink from "../atoms/SocialLink.astro";
+import { LINKS } from '../../consts';
+---
+
+<div class="social-links">
+    { LINKS.map(props => <SocialLink {...props}/>) }
+</div>
+
+<style>
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+</style>
+

@@ -1,0 +1,15 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import { BIRTHDAY } from "../consts.ts";
+
+const ageDiffMs = Date.now() - new Date(BIRTHDAY);
+const ageDate = new Date(ageDiffMs);
+const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+---
+
+<DefaultLayout>
+	<section>	
+		<h1>Hello, I am Kirill!</h1>
+		<p>I am {age} y.o. IT enthusiast from Moscow.</p>
+	</section>
+</DefaultLayout>
