@@ -1,6 +1,7 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
-import { BIRTHDAY, THOUGHTS } from "../consts.ts";
+import Specialization from "../components/organisms/Specialization.astro";
+import { BIRTHDAY, THOUGHTS, EXPERIENCE } from "../consts.ts";
 
 const ageDiffMs = Date.now() - new Date(BIRTHDAY);
 const ageDate = new Date(ageDiffMs);
@@ -8,21 +9,28 @@ const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 ---
 
 <DefaultLayout>
-	<section>	
-		<h1>Hello, I am Kirill!</h1>
-		<p>I am {age} y.o. IT enthusiast from Moscow.</p>
-	</section>
-	<section class="thoughts">
-		<h2>Some thoughts:</h2>
-		{ THOUGHTS.map(thought => <blockquote>{thought}</blockquote>) }
-	</section>
+  <section>
+    <h1>Hello, I am Kirill!</h1>
+    <p>I am {age} y.o. IT enthusiast from Moscow.</p>
+  </section>
+  <section class="thoughts">
+    <h2>Some thoughts:</h2>
+    {THOUGHTS.map((thought) => <blockquote>{thought}</blockquote>)}
+  </section>
+  <section class="experience">
+    <h2>I have worked with:</h2>
+    {EXPERIENCE.map((specialization) => <Specialization {...specialization} />)}
+  </section>
 </DefaultLayout>
 
 <style>
-	.thoughts {
-		margin-top: 2rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
+  section {
+    margin-top: 2rem;
+  }
+
+  .thoughts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 </style>

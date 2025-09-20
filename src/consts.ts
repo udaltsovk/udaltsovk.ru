@@ -27,3 +27,217 @@ export const THOUGHTS: string[] = [
   "I hate windows for it's very strange issues... and because it's microsoft :)",
   "Mac is 10 times better than windows but 3 times worse than Linux (actually GNU+Linux, but who cares?)",
 ];
+
+export interface Technology {
+  name: string;
+  description?: string;
+  logo?: string;
+  glow_color: string;
+}
+
+export interface Specialization {
+  name: string;
+  accent_color: string;
+  technologies: Technology[];
+}
+
+export const EXPERIENCE: Specialization[] = [
+  {
+    name: "Backend (and stuff around it)",
+    accent_color: "red",
+    technologies: [
+      {
+        name: "Rust",
+        description: "Mostly backend using actix-web/axum or bots",
+        glow_color: "#dea584",
+      },
+      {
+        name: "Java",
+        description: "Mostly Minecraft mods, plugins and etc.",
+        glow_color: "#b07219",
+      },
+      {
+        name: "Kotlin",
+        description: "Mostly Spring ecosystem",
+        glow_color: "#A97BFF",
+      },
+      {
+        name: "TypeScript",
+        glow_color: "#3178c6",
+      },
+      {
+        name: "JavaScript",
+        glow_color: "#f1e05a",
+      },
+      {
+        name: "Go",
+        glow_color: "#00ADD8",
+      },
+      {
+        name: "C++",
+        logo: "CPlusPlus",
+        glow_color: "#f34b7d",
+      },
+      {
+        name: "C#",
+        description: "Only for GameDev",
+        logo: "CSharp",
+        glow_color: "#178600",
+      },
+      {
+        name: "Zig",
+        glow_color: "#ec915c",
+      },
+      {
+        name: "Elixir",
+        glow_color: "#6e4a7e",
+      },
+      {
+        name: "P*th*n",
+        description: "Only for simple scripts",
+        logo: "Python",
+        glow_color: "#3572A5",
+      },
+      {
+        name: "Pascal",
+        glow_color: "#E3F171",
+      },
+      {
+        name: "C",
+        glow_color: "#555555",
+      },
+      {
+        name: "Wiring",
+        glow_color: "#008083",
+      },
+      {
+        name: "PostgreSQL",
+        glow_color: "#2F6691",
+      },
+      {
+        name: "YugabyteDB",
+        glow_color: "#EE5F3E",
+      },
+      {
+        name: "MySQL",
+        glow_color: "#F09108",
+      },
+      {
+        name: "MariaDB",
+        glow_color: "#BE755A",
+      },
+      {
+        name: "Redis",
+        glow_color: "#F44035",
+      },
+      {
+        name: "Valkey",
+        glow_color: "#6883FD",
+      },
+      {
+        name: "SurrealDB",
+        glow_color: "#D517CD",
+      },
+    ],
+  },
+  {
+    name: "Frontend",
+    accent_color: "blue",
+    technologies: [
+      {
+        name: "TypeScript",
+        glow_color: "#3178c6",
+      },
+      {
+        name: "JavaScript",
+        glow_color: "#f1e05a",
+      },
+      {
+        name: "HTML",
+        glow_color: "#e34c26",
+      },
+      {
+        name: "CSS",
+        glow_color: "#663399",
+      },
+      {
+        name: "Svelte(Kit)",
+        logo: "Svelte",
+        glow_color: "#ff3e00",
+      },
+      {
+        name: "Astro",
+        glow_color: "#ff5a03",
+      },
+      {
+        name: "Vue(Nuxt)",
+        logo: "Vue",
+        glow_color: "#41b883",
+      },
+      {
+        name: "Solid(Start)",
+        logo: "Solid",
+        glow_color: "#2c4f7c",
+      },
+      {
+        name: "React(Next)",
+        logo: "React",
+        glow_color: "#60D9F9",
+      },
+      // {
+      //   name: "Angular",
+      // },
+      {
+        name: "Tailwind CSS",
+        logo: "Tailwind",
+        glow_color: "#35BCF6",
+      },
+      {
+        name: "SCSS",
+        glow_color: "#c6538c",
+      },
+    ],
+  },
+  {
+    name: "DevOps/SRE",
+    accent_color: "green",
+    technologies: [
+      {
+        name: "CI/CD",
+        logo: "CICD",
+        glow_color: "#4E9F68",
+      },
+      {
+        name: "Linux",
+        glow_color: "#F3BC04",
+      },
+      {
+        name: "Docker",
+        glow_color: "#1D62EB",
+      },
+      {
+        name: "Podman",
+        glow_color: "#8A29A1",
+      },
+      {
+        name: "Kubernetes",
+        glow_color: "#326CE4",
+      },
+      // {
+      //   name: "Ansible",
+      // },
+      // {
+      //   name: "Terraform",
+      // },
+      // {
+      //   name: "Tofu",
+      // },
+      {
+        name: "Nix(OS)",
+        description: "I daily-drive it :)",
+        logo: "Nix",
+        glow_color: "#7EB6E0",
+      },
+    ],
+  },
+];

@@ -1,10 +1,10 @@
 ---
 import SocialLink from "../atoms/SocialLink.astro";
-import { LINKS } from '../../consts';
+import { LINKS } from "../../consts";
 ---
 
 <div class="social-links">
-    { LINKS.map(props => <SocialLink {...props}/>) }
+  {LINKS.map((props) => <SocialLink {...props} />)}
 </div>
 
 <style>
@@ -14,4 +14,3 @@ import { LINKS } from '../../consts';
     gap: 1rem;
   }
 </style>
-

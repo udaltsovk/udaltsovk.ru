@@ -1,5 +1,5 @@
 ---
-import { Link } from "../../consts.ts";
+import type { Link } from "../../consts";
 
 type Props = Link;
 
@@ -9,19 +9,18 @@ const { default: SVGIcon } = await import(`../../assets/icons/${name}.svg?raw`);
 ---
 
 <a href={href} target="_blank">
-	<span class="sr-only">{description}</span>
-	<Fragment set:html={SVGIcon}/>
+  <span class="sr-only">{description}</span>
+  <Fragment set:html={SVGIcon} />
 </a>
 
-
 <style>
-	a {
-		display: flex;
-		color: var(--ctp-mocha-subtext0);
-		transition: color 0.5s ease-out;
-	}
+  a {
+    display: flex;
+    color: var(--ctp-mocha-subtext0);
+    transition: color 0.5s ease-out;
+  }
 
-	a:hover {
-		color: var(--ctp-mocha-accent);
-	}
+  a:hover {
+    color: var(--ctp-mocha-accent);
+  }
 </style>
