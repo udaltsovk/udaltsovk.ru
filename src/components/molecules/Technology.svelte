@@ -41,11 +41,19 @@
   }
 
   function handleMouseEnter() {
+    if (!document.body.classList.contains("hasHover")) {
+      return;
+    }
+
     bounds = card.getBoundingClientRect();
     document.addEventListener("mousemove", rotateToMouse);
   }
 
   function handleMouseLeave() {
+    if (!document.body.classList.contains("hasHover")) {
+      return;
+    }
+
     document.removeEventListener("mousemove", rotateToMouse);
     card.style.transform = "";
     glow.style.backgroundImage = "";
@@ -89,7 +97,7 @@
     background-repeat: no-repeat;
   }
 
-  .card:hover {
+  body.hasHover .card:hover {
     transition-duration: 150ms;
     box-shadow: 0 5px 20px 5px var(--ctp-mocha-crust);
     z-index: 10;
