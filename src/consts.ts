@@ -1,5 +1,8 @@
+import { flavors } from "@catppuccin/palette";
+
 export const SITE_TITLE: string = "Kirill Udaltsov";
 export const SITE_DESCRIPTION: string = "Welcome to my website!";
+export const ACCENT_COLOR: string = flavors.mocha.colors.blue.hex;
 
 export interface Link {
   name: string;

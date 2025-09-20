@@ -160,3 +160,8 @@ hr {
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+::selection {
+  color: var(--ctp-latte-text);
+  background-color: var(--ctp-mocha-accent);
+}
