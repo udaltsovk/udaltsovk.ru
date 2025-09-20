@@ -40,14 +40,12 @@ export interface Technology {
 
 export interface Specialization {
   name: string;
-  accent_color: string;
   technologies: Technology[];
 }
 
 export const EXPERIENCE: Specialization[] = [
   {
     name: "Backend (and stuff around it)",
-    accent_color: "red",
     technologies: [
       {
         name: "Rust",
@@ -145,7 +143,6 @@ export const EXPERIENCE: Specialization[] = [
   },
   {
     name: "Frontend",
-    accent_color: "blue",
     technologies: [
       {
         name: "TypeScript",
@@ -203,7 +200,6 @@ export const EXPERIENCE: Specialization[] = [
   },
   {
     name: "DevOps/SRE",
-    accent_color: "green",
     technologies: [
       {
         name: "CI/CD",
