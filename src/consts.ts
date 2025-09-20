@@ -28,7 +28,7 @@ export const LINKS: Link[] = [
 ];
 
 export const THOUGHTS: string[] = [
-  "I don't know how to count experience properly because an enthusiastic student can learn more during only 1 year than a developer that have been programming only CRUD apps for like 5 years.",
+  "I don't know how to count experience properly because an enthusiastic student (not me) can learn more during only 1 year than a developer that have been programming only CRUD apps for like 5 years.",
   "I hate windows for it's very strange issues... and because it's microsoft :)",
   "Mac is 10 times better than windows but 3 times worse than Linux (actually GNU+Linux, but who cares?)",
 ];
