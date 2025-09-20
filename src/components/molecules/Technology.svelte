@@ -99,7 +99,7 @@
 
   body.hasHover .card:hover {
     transition-duration: 150ms;
-    box-shadow: 0 5px 20px 5px var(--ctp-mocha-crust);
+    box-shadow: 0 0.25rem 1.25rem 0.25rem var(--ctp-mocha-crust);
     z-index: 10;
   }
 
