@@ -80,7 +80,7 @@ a {
   color: var(--ctp-mocha-accent);
 }
 
-a:hover {
+body.hasHover a:hover {
   color: var(--ctp-mocha-accent);
 }
 
