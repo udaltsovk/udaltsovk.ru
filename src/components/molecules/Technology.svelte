@@ -66,7 +66,7 @@
   <div class="info">
     <div class="hero">
       <h4>{name}</h4>
-      <img alt="{name} logo" src="/logos/{logo}.webp" , height="48" />
+      <img alt="{name} logo" src="/logos/{logo}.webp" height="48" />
     </div>
     {#if description}
       <p>{description}</p>
