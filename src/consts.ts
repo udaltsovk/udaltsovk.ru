@@ -1,8 +1,6 @@
 export const SITE_TITLE: string = "Kirill Udaltsov";
 export const SITE_DESCRIPTION: string = "Welcome to my website!";
 
-export const BIRTHDAY: string = "12/21/2009";
-
 export interface Link {
   name: string;
   description: string;

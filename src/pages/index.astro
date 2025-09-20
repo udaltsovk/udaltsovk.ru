@@ -1,17 +1,13 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Specialization from "../components/organisms/Specialization.astro";
-import { BIRTHDAY, THOUGHTS, EXPERIENCE } from "../consts.ts";
-
-const ageDiffMs = Date.now() - new Date(BIRTHDAY);
-const ageDate = new Date(ageDiffMs);
-const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+import { THOUGHTS, EXPERIENCE } from "../consts.ts";
 ---
 
 <DefaultLayout>
   <section>
-    <h1>Hello, I am Kirill!</h1>
-    <p>I am {age} y.o. IT enthusiast from Moscow.</p>
+    <h1>Hello, my name is Kirill!</h1>
+    <p>I am IT enthusiast from Moscow.</p>
   </section>
   <section class="thoughts">
     <h2>Some thoughts:</h2>
