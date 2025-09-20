@@ -24,10 +24,13 @@ import SocialLinks from "../molecules/SocialLinks.astro";
 
 <style>
   header {
+    position: sticky;
+    top: 0;
     margin: 0;
     padding: 0 1rem;
-    background: var(--ctp-mocha-mantle);
+    background-color: var(--ctp-mocha-mantle);
     box-shadow: 0 0.125rem 0.5rem rgba(var(--ctp-mocha-crust), 5%);
+    z-index: 100;
   }
   h2 {
     margin: 0;
