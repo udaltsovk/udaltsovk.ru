@@ -165,3 +165,8 @@ hr {
   color: var(--ctp-latte-text);
   background-color: var(--ctp-mocha-accent);
 }
+
+::-moz-selection {
+  color: var(--ctp-latte-text);
+  background-color: var(--ctp-mocha-accent);
+}
