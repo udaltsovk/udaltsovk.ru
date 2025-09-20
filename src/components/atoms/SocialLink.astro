@@ -1,9 +1,7 @@
 ---
-type Props = {
-	href: string,
-	name: string,
-	description: string
-};
+import { Link } from "../../consts.ts";
+
+type Props = Link;
 
 const { href, name, description } = Astro.props;
 
