@@ -20,6 +20,11 @@ export const LINKS: Link[] = [
     description: "My Telegram",
     href: "https://t.me/KirillUdaltsov",
   },
+  {
+    name: "habr",
+    description: "My Habr profile",
+    href: "https://habr.com/users/udaltsovk",
+  },
 ];
 
 export const THOUGHTS: string[] = [
