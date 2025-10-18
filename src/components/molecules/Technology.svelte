@@ -1,14 +1,26 @@
-<script>
+<script lang="ts">
   import { flavors } from "@catppuccin/palette";
   import { onDestroy } from "svelte";
 
-  const { name, description, logo = name, glow_color } = $props();
+  interface TechnologyProps {
+    name: string;
+    description?: string;
+    logo?: string;
+    glow_color: string;
+  }
 
-  let card;
-  let glow;
-  let bounds;
+  const {
+    name,
+    description,
+    logo = name,
+    glow_color,
+  }: TechnologyProps = $props();
 
-  function rotateToMouse(e) {
+  let card: HTMLElement;
+  let glow: HTMLElement;
+  let bounds: DOMRect;
+
+  function rotateToMouse(e: MouseEvent) {
     const mouseX = e.clientX;
     const mouseY = e.clientY;
     const leftX = mouseX - bounds.x;
