@@ -35,27 +35,27 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 <script>
   function watchForHover() {
-    let lastTouchTime = 0
+    let lastTouchTime = 0;
 
     function enableHover() {
-      if (new Date() - lastTouchTime < 500) return
-      document.body.classList.add('hasHover')
+      if (Date.now() - lastTouchTime < 500) return;
+      document.body.classList.add("hasHover");
     }
 
     function disableHover() {
-      document.body.classList.remove('hasHover')
+      document.body.classList.remove("hasHover");
     }
 
     function updateLastTouchTime() {
-      lastTouchTime = new Date()
+      lastTouchTime = Date.now();
     }
 
-    document.addEventListener('touchstart', updateLastTouchTime, true)
-    document.addEventListener('touchstart', disableHover, true)
-    document.addEventListener('mousemove', enableHover, true)
+    document.addEventListener("touchstart", updateLastTouchTime, true);
+    document.addEventListener("touchstart", disableHover, true);
+    document.addEventListener("mousemove", enableHover, true);
 
-    enableHover()
+    enableHover();
   }
 
-  watchForHover()
+  watchForHover();
 </script>
