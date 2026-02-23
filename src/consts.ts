@@ -187,9 +187,10 @@ export const EXPERIENCE: Specialization[] = [
         logo: "React",
         glow_color: "#60D9F9",
       },
-      // {
-      //   name: "Angular",
-      // },
+      {
+        name: "Angular",
+        glow_color: "#E92199",
+      },
       {
         name: "Tailwind CSS",
         logo: "Tailwind",
@@ -231,9 +232,6 @@ export const EXPERIENCE: Specialization[] = [
       // },
       // {
       //   name: "Terraform",
-      // },
-      // {
-      //   name: "Tofu",
       // },
       {
         name: "Nix(OS)",
