@@ -109,7 +109,7 @@
     background-repeat: no-repeat;
   }
 
-  .card:hover {
+  :global(body.hasHover) .card:hover {
     transition-duration: 150ms;
     box-shadow: 0 0.25rem 1.25rem 0.25rem var(--ctp-mocha-crust);
     z-index: 10;

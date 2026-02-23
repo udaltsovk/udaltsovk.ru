@@ -38,7 +38,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     let lastTouchTime = 0;
 
     function enableHover() {
-      if (new Date() - lastTouchTime < 500) return;
+      if (Date.now() - lastTouchTime < 500) return;
       document.body.classList.add("hasHover");
     }
 
@@ -47,7 +47,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     }
 
     function updateLastTouchTime() {
-      lastTouchTime = new Date();
+      lastTouchTime = Date.now();
     }
 
     document.addEventListener("touchstart", updateLastTouchTime, true);
