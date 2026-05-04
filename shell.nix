@@ -1,18 +1,11 @@
 {pkgs ? import <nixpkgs> {}}: let
   packages = with pkgs; [
-    # languages
-    (nodejs_24.override {
-      enableNpm = false;
-    })
-    pnpm
-
-    # development tools
-    watchexec
+    bun
   ];
 in
   with pkgs;
     mkShell {
-      name = "edu-frontend";
+      name = "udaltsovk.ru";
       buildInputs = packages;
 
       DIRENV_LOG_FORMAT = "";
