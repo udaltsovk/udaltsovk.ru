@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { flavors } from "@catppuccin/palette";
   import { onDestroy } from "svelte";
 
   interface TechnologyProps {
@@ -16,71 +15,67 @@
     glow_color,
   }: TechnologyProps = $props();
 
-  let card: HTMLElement;
-  let glow: HTMLElement;
-  let bounds: DOMRect;
+  let card: HTMLElement | undefined;
 
-  function rotateToMouse(e: MouseEvent) {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const leftX = mouseX - bounds.x;
-    const topY = mouseY - bounds.y;
-    const center = {
-      x: leftX - bounds.width / 2,
-      y: topY - bounds.height / 2,
-    };
-    const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+  const maxRotation = 8;
 
+  function clamp(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function canUseFlashlight(event: PointerEvent) {
+    if (event.pointerType !== "mouse") {
+      return false;
+    }
+
+    return document.body.classList.contains("hasHover");
+  }
+
+  function updateFlashlight(event: PointerEvent) {
+    if (!card || !canUseFlashlight(event)) {
+      return;
+    }
+
+    const bounds = card.getBoundingClientRect();
+    const leftX = clamp(event.clientX - bounds.left, 0, bounds.width);
+    const topY = clamp(event.clientY - bounds.top, 0, bounds.height);
+    const centerX = leftX - bounds.width / 2;
+    const centerY = topY - bounds.height / 2;
+    const rotateX = (-centerY / bounds.height) * maxRotation;
+    const rotateY = (centerX / bounds.width) * maxRotation;
+
+    card.style.setProperty("--glow-x", `${leftX}px`);
+    card.style.setProperty("--glow-y", `${topY}px`);
     card.style.transform = `
+      perspective(48rem)
       scale3d(1.07, 1.07, 1.07)
-      rotate3d(
-        ${center.y / 100},
-        ${-center.x / 100},
-        0,
-        ${Math.log(distance) * 2}deg
-      )
-    `;
-
-    glow.style.backgroundImage = `
-      radial-gradient(
-        circle at
-        ${leftX}px
-        ${topY}px,
-        ${glow_color},
-        ${flavors.mocha.colors.crust.hex}
-      )
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
     `;
   }
 
-  function handleMouseEnter() {
-    if (!document.body.classList.contains("hasHover")) {
+  function resetFlashlight() {
+    if (!card) {
       return;
     }
 
-    bounds = card.getBoundingClientRect();
-    document.addEventListener("mousemove", rotateToMouse);
-  }
-
-  function handleMouseLeave() {
-    if (!document.body.classList.contains("hasHover")) {
-      return;
-    }
-
-    document.removeEventListener("mousemove", rotateToMouse);
     card.style.transform = "";
-    glow.style.backgroundImage = "";
+    card.style.removeProperty("--glow-x");
+    card.style.removeProperty("--glow-y");
   }
 
   onDestroy(() => {
-    document.removeEventListener("mousemove", rotateToMouse);
+    resetFlashlight();
   });
 </script>
 
 <article
   class="card"
   bind:this={card}
-  onmouseenter={handleMouseEnter}
-  onmouseleave={handleMouseLeave}
+  onpointerenter={updateFlashlight}
+  onpointermove={updateFlashlight}
+  onpointerleave={resetFlashlight}
+  onpointercancel={resetFlashlight}
   style="--glow-color: {glow_color}"
 >
   <div class="info">
@@ -92,55 +87,55 @@
       <p>{description}</p>
     {/if}
   </div>
-  <div class="glow" bind:this={glow}></div>
+  <div class="glow"></div>
 </article>
 
-<style>
+<style lang="less">
+  @import (reference) "../../styles/tokens.less";
+
+  @card-logo-size: 4rem;
+
   .card {
-    padding: 1rem;
-    background-color: var(--ctp-mocha-surface0);
+    padding: @space-md;
+    background-color: @color-surface;
     position: relative;
-    transition-duration: 300ms;
+    transition-duration: @duration-card;
     transition-property: transform, box-shadow;
     transition-timing-function: ease-out;
-    transform: rotate3d(0);
-    background-size: auto 4rem;
+    transform: none;
+    transform-style: preserve-3d;
+    background-size: auto @card-logo-size;
     background-position: top 0.5rem right 0.5rem;
     background-repeat: no-repeat;
-  }
+    overflow: hidden;
+    isolation: isolate;
 
-  :global(body.hasHover) .card:hover {
-    transition-duration: 150ms;
-    box-shadow: 0 0.25rem 1.25rem 0.25rem var(--ctp-mocha-crust);
-    z-index: 10;
+    :global(body.hasHover) &:hover {
+      transition-duration: @duration-card-hover;
+      box-shadow: 0 @space-xs @space-lg @space-xs @color-crust;
+      z-index: @z-card-hover;
+    }
   }
 
   .info {
-    display: flex;
-    flex-direction: column;
+    .flex-column();
     position: relative;
-    z-index: 2;
+    z-index: @z-card-content;
   }
 
   .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    .flex-between();
   }
 
   .glow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
+    .absolute-fill();
     background-image: radial-gradient(
-      circle at 150% -50%,
-      var(--glow-color, --ctp-mocha-blue),
-      var(--ctp-mocha-crust)
+      circle at var(--glow-x, 150%) var(--glow-y, -50%),
+      var(--glow-color, @color-blue),
+      @color-crust
     );
     opacity: 0.5;
     pointer-events: none;
-    z-index: 1;
+    z-index: @z-card-glow;
   }
 </style>

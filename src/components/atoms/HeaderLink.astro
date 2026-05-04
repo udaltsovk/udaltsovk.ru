@@ -13,19 +13,21 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
   <slot />
 </a>
 
-<style>
+<style lang="less">
+  @import (reference) "../../styles/tokens.less";
+
   a {
     display: inline-block;
     text-decoration: none;
-    transition: color 0.5s ease-out;
-  }
+    .color-transition();
 
-  body.hasHover a:hover {
-    color: var(--ctp-mocha-accent) !important;
-  }
+    body.hasHover &:hover {
+      color: @color-accent !important;
+    }
 
-  a.active {
-    font-weight: bolder;
-    text-decoration: underline;
+    &.active {
+      font-weight: bolder;
+      text-decoration: underline;
+    }
   }
 </style>

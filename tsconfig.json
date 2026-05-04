@@ -1,18 +1,13 @@
 {
   "$schema": "https://www.schemastore.org/tsconfig.json",
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
-    "moduleResolution": "nodenext",
+    "module": "esnext",
     "strictNullChecks": true,
     "allowJs": false,
     "alwaysStrict": true,
-    "strict": true
-  }
+    "strict": true,
+  },
 }

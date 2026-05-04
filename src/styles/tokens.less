@@ -1,0 +1,113 @@
+@font-family-name: "Atkinson";
+@font-family-base: @font-family-name, sans-serif;
+
+@space-2xs: 0.125rem;
+@space-xs: 0.25rem;
+@space-sm: 0.5rem;
+@space-md: 1rem;
+@space-lg: 1.25rem;
+@space-xl: 1.5rem;
+@space-2xl: 2rem;
+@space-3xl: 3rem;
+@space-6xl: 6rem;
+
+@border-thin: 0.0625rem;
+@radius-sm: 0.125rem;
+@radius-md: 0.5rem;
+
+@font-size-site-title: 1rem;
+@font-size-base: 1.25rem;
+@font-size-mobile: 1rem;
+@font-size-control: 1rem;
+@font-size-blockquote: 1.333rem;
+@line-height-base: 1.7;
+@line-height-heading: 1.2;
+
+@heading-sizes: {
+  h1: 3rem;
+  h2: 2rem;
+  h3: 1.75rem;
+  h4: 1.5rem;
+  h5: 1.25rem;
+};
+
+@breakpoint-page: 720px;
+@breakpoint-technologies-two-columns: 1000px;
+@breakpoint-technologies-one-column: 630px;
+
+@color-text: var(--ctp-mocha-text);
+@color-subtle: var(--ctp-mocha-subtext0);
+@color-accent: var(--ctp-mocha-accent);
+@color-base: var(--ctp-mocha-base);
+@color-mantle: var(--ctp-mocha-mantle);
+@color-crust: var(--ctp-mocha-crust);
+@color-surface: var(--ctp-mocha-surface0);
+@color-blue: var(--ctp-mocha-blue);
+@color-selection-text: var(--ctp-latte-text);
+
+@duration-color: 0.5s;
+@duration-card: 300ms;
+@duration-card-hover: 150ms;
+
+@z-card-glow: 1;
+@z-card-content: 2;
+@z-card-hover: 10;
+@z-header: 100;
+
+.flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column(@gap) {
+  .flex-column();
+  gap: @gap;
+}
+
+.size(@width, @height: @width) {
+  width: @width;
+  height: @height;
+}
+
+.absolute-fill() {
+  position: absolute;
+  .size(100%);
+  left: 0;
+  top: 0;
+}
+
+.grid-columns(@columns) {
+  grid-template-columns: repeat(@columns, 1fr);
+}
+
+.color-transition() {
+  transition: color @duration-color ease-out;
+}
+
+.hover-color(@color: @color-accent) {
+  body.hasHover &:hover {
+    color: @color;
+  }
+}
+
+.font-face(@family, @file, @weight) {
+  @font-face {
+    font-family: @family;
+    src: url(@file) format("woff");
+    font-weight: @weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}

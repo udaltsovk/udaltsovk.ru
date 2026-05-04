@@ -7,10 +7,11 @@ import { LINKS } from "../../consts";
   {LINKS.map((props) => <SocialLink {...props} />)}
 </div>
 
-<style>
+<style lang="less">
+  @import (reference) "../../styles/tokens.less";
+
   .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+    .flex-center();
+    gap: @space-md;
   }
 </style>

@@ -11,15 +11,17 @@ const today = new Date();
   </div>
 </footer>
 
-<style>
+<style lang="less">
+  @import (reference) "../../styles/tokens.less";
+
   footer {
-    padding: 2rem 1rem 6rem 1rem;
-    background: var(--ctp-mocha-mantle);
-    color: var(--ctp-mocha-text);
+    padding: @space-2xl @space-md @space-6xl;
+    background: @color-mantle;
+    color: @color-text;
     text-align: center;
   }
 
   .social-links {
-    margin-top: 1rem;
+    margin-top: @space-md;
   }
 </style>

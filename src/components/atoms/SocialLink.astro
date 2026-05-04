@@ -13,14 +13,13 @@ const { default: SVGIcon } = await import(`../../assets/icons/${name}.svg?raw`);
   <Fragment set:html={SVGIcon} />
 </a>
 
-<style>
+<style lang="less">
+  @import (reference) "../../styles/tokens.less";
+
   a {
     display: flex;
-    color: var(--ctp-mocha-subtext0);
-    transition: color 0.5s ease-out;
-  }
-
-  body.hasHover a:hover {
-    color: var(--ctp-mocha-accent);
+    color: @color-subtle;
+    .color-transition();
+    .hover-color();
   }
 </style>

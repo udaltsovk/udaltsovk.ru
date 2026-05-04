@@ -1,0 +1,157 @@
+@import (reference) "@catppuccin/palette/less/catppuccin.less";
+@import (reference) "./tokens.less";
+
+@ctp-flavors: latte, frappe, macchiato, mocha;
+
+.ctp-flavor-vars(@flavor) {
+  each(@catppuccin[@@flavor], {
+    --ctp-@{flavor}-@{key}: @value;
+  });
+}
+
+:root {
+  each(@ctp-flavors, {
+    .ctp-flavor-vars(@value);
+  });
+
+  --ctp-mocha-accent: var(--ctp-mocha-blue);
+}
+
+.font-face(@font-family-name, "/fonts/atkinson-regular.woff", 400);
+.font-face(@font-family-name, "/fonts/atkinson-bold.woff", 700);
+
+body {
+  font-family: @font-family-base;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background: @color-base;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: @color-text;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+}
+
+main {
+  width: 75%;
+  max-width: calc(100% - (@space-md * 2));
+  margin: auto;
+  padding: @space-3xl @space-md;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: @color-text;
+  line-height: @line-height-heading;
+}
+
+each(@heading-sizes, {
+  @{key} {
+    font-size: @value;
+  }
+});
+
+strong,
+b {
+  font-weight: 700;
+}
+
+a {
+  color: @color-accent;
+  .hover-color();
+}
+
+p {
+  margin-bottom: @space-md;
+}
+
+.prose {
+  p {
+    margin-bottom: @space-2xl;
+  }
+}
+
+textarea {
+  width: 100%;
+}
+
+textarea,
+input {
+  font-size: @font-size-control;
+}
+
+table {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: @radius-md;
+}
+
+code {
+  padding: @space-2xs @space-xs;
+  background-color: @color-surface;
+  border-radius: @radius-sm;
+}
+
+pre {
+  padding: @space-xl;
+  border-radius: @radius-md;
+
+  > code {
+    all: unset;
+  }
+}
+
+blockquote {
+  border-left: @space-xs solid @color-accent;
+  padding: 0 0 0 @space-lg;
+  margin: 0;
+  font-size: @font-size-blockquote;
+}
+
+hr {
+  border: none;
+  border-top: @border-thin solid @color-surface;
+}
+
+@media (max-width: @breakpoint-page) {
+  body {
+    font-size: @font-size-mobile;
+  }
+
+  main {
+    padding: @space-md;
+  }
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  .size(@border-thin);
+  overflow: hidden;
+  clip: rect(@border-thin @border-thin @border-thin @border-thin);
+  clip: rect(@border-thin, @border-thin, @border-thin, @border-thin);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+::selection {
+  color: @color-selection-text;
+  background-color: @color-accent;
+}
+
+::-moz-selection {
+  color: @color-selection-text;
+  background-color: @color-accent;
+}

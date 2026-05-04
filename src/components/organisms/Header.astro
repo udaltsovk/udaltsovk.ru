@@ -22,50 +22,56 @@ import SocialLinks from "../molecules/SocialLinks.astro";
   </nav>
 </header>
 
-<style>
+<style lang="less">
+  @import (reference) "../../styles/tokens.less";
+
+  @header-shadow-color: fade(#11111b, 5%);
+
   header {
     position: sticky;
     top: 0;
     margin: 0;
-    padding: 0 1rem;
-    background-color: var(--ctp-mocha-mantle);
-    box-shadow: 0 0.125rem 0.5rem rgba(var(--ctp-mocha-crust), 5%);
-    z-index: 100;
-  }
-  h2 {
-    margin: 0;
-    font-size: 1rem;
-  }
+    padding: 0 @space-md;
+    background-color: @color-mantle;
+    box-shadow: 0 @space-2xs @space-sm @header-shadow-color;
+    z-index: @z-header;
 
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav a {
-    padding: 1rem 0.5rem;
-    color: var(--ctp-mocha-text);
-    border-bottom: 0.25rem solid transparent;
-    text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--ctp-mocha-accent);
-  }
+    h2 {
+      margin: 0;
+      font-size: @font-size-site-title;
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+      a,
+      a.active {
+        text-decoration: none;
+      }
+    }
 
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
+    nav {
+      .flex-between();
+
+      a {
+        padding: @space-md @space-sm;
+        color: @color-text;
+        border-bottom: @space-xs solid transparent;
+        text-decoration: none;
+
+        &.active {
+          text-decoration: none;
+          border-bottom-color: @color-accent;
+        }
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: @space-sm;
+    }
+
+    @media (max-width: @breakpoint-page) {
+      .social-links {
+        display: none;
+      }
     }
   }
 </style>

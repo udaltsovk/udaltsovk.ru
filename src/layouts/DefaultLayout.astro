@@ -21,11 +21,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   </body>
 </html>
 
-<style>
+<style lang="less">
+  @import (reference) "../styles/tokens.less";
+
   .container {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    .flex-column();
   }
 
   .content {

@@ -19,14 +19,14 @@ import { THOUGHTS, EXPERIENCE } from "../consts.ts";
   </section>
 </DefaultLayout>
 
-<style>
+<style lang="less">
+  @import (reference) "../styles/tokens.less";
+
   section {
-    margin-top: 2rem;
+    margin-top: @space-2xl;
   }
 
   .thoughts {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    .flex-column(@space-md);
   }
 </style>

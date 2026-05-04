@@ -8,10 +8,11 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
   </div>
 </DefaultLayout>
 
-<style>
+<style lang="less">
+  @import (reference) "../styles/tokens.less";
+
   .wrapper {
-    display: flex;
+    .flex-center();
     align-content: center;
-    justify-content: center;
   }
 </style>
