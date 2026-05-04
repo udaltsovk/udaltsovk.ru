@@ -1,18 +1,8 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import DefaultLayout from "../app/layouts/DefaultLayout.astro";
+import NotFoundPage from "../features/not-found/components/NotFoundPage.astro";
 ---
 
 <DefaultLayout>
-  <div class="wrapper">
-    <img alt="Oops! Page was not found!" src="/404.webp" />
-  </div>
+  <NotFoundPage />
 </DefaultLayout>
-
-<style lang="less">
-  @import (reference) "../styles/tokens.less";
-
-  .wrapper {
-    .flex-center();
-    align-content: center;
-  }
-</style>

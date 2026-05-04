@@ -1,0 +1,29 @@
+---
+import { THOUGHTS, EXPERIENCE } from "../model";
+import Specialization from "./Specialization.astro";
+---
+
+<section>
+  <h1>Hello, my name is Kirill!</h1>
+  <p>I am IT enthusiast from Moscow.</p>
+</section>
+<section class="thoughts">
+  <h2>Some thoughts:</h2>
+  {THOUGHTS.map((thought) => <blockquote>{thought}</blockquote>)}
+</section>
+<section class="experience">
+  <h2>I have worked with:</h2>
+  {EXPERIENCE.map((specialization) => <Specialization {...specialization} />)}
+</section>
+
+<style lang="less">
+  @import (reference) "../../../shared/styles/tokens.less";
+
+  section {
+    margin-top: @space-2xl;
+  }
+
+  .thoughts {
+    .flex-column(@space-md);
+  }
+</style>

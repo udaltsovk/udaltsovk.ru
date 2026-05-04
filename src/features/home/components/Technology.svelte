@@ -91,7 +91,7 @@
 </article>
 
 <style lang="less">
-  @import (reference) "../../styles/tokens.less";
+  @import (reference) "../../../shared/styles/tokens.less";
 
   @card-logo-size: 4rem;
 

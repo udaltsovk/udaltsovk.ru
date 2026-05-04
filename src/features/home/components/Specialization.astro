@@ -1,6 +1,6 @@
 ---
-import Technology from "../molecules/Technology.svelte";
-import type { Specialization } from "../../consts.ts";
+import Technology from "./Technology.svelte";
+import type { Specialization } from "../model";
 
 type Props = Specialization;
 
@@ -19,7 +19,7 @@ const { name, technologies } = Astro.props;
 </section>
 
 <style lang="less">
-  @import (reference) "../../styles/tokens.less";
+  @import (reference) "../../../shared/styles/tokens.less";
 
   section {
     margin-top: @space-md;

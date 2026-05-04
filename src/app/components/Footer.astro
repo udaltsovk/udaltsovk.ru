@@ -1,5 +1,5 @@
 ---
-import SocialLinks from "../molecules/SocialLinks.astro";
+import SocialLinks from "../../features/social-links/components/SocialLinks.astro";
 
 const today = new Date();
 ---
@@ -12,7 +12,7 @@ const today = new Date();
 </footer>
 
 <style lang="less">
-  @import (reference) "../../styles/tokens.less";
+  @import (reference) "../../shared/styles/tokens.less";
 
   footer {
     padding: @space-2xl @space-md @space-6xl;

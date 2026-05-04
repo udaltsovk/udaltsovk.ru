@@ -1,6 +1,6 @@
 ---
-import SocialLink from "../atoms/SocialLink.astro";
-import { LINKS } from "../../consts";
+import { LINKS } from "../model";
+import SocialLink from "./SocialLink.astro";
 ---
 
 <div class="social-links">
@@ -8,7 +8,7 @@ import { LINKS } from "../../consts";
 </div>
 
 <style lang="less">
-  @import (reference) "../../styles/tokens.less";
+  @import (reference) "../../../shared/styles/tokens.less";
 
   .social-links {
     .flex-center();

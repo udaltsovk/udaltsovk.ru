@@ -1,11 +1,11 @@
 ---
-import type { Link } from "../../consts";
+import type { Link } from "../model";
 
 type Props = Link;
 
 const { href, name, description } = Astro.props;
 
-const { default: SVGIcon } = await import(`../../assets/icons/${name}.svg?raw`);
+const { default: SVGIcon } = await import(`../assets/icons/${name}.svg?raw`);
 ---
 
 <a href={href} target="_blank">
@@ -14,7 +14,7 @@ const { default: SVGIcon } = await import(`../../assets/icons/${name}.svg?raw`);
 </a>
 
 <style lang="less">
-  @import (reference) "../../styles/tokens.less";
+  @import (reference) "../../../shared/styles/tokens.less";
 
   a {
     display: flex;
