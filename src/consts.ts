@@ -192,6 +192,10 @@ export const EXPERIENCE: Specialization[] = [
         glow_color: "#E92199",
       },
       {
+        name: "LESS",
+        glow_color: "#2F507E",
+      },
+      {
         name: "Tailwind CSS",
         logo: "Tailwind",
         glow_color: "#35BCF6",
@@ -206,15 +210,6 @@ export const EXPERIENCE: Specialization[] = [
     name: "DevOps/SRE",
     technologies: [
       {
-        name: "CI/CD",
-        logo: "CICD",
-        glow_color: "#4E9F68",
-      },
-      {
-        name: "Linux",
-        glow_color: "#F3BC04",
-      },
-      {
         name: "Docker",
         glow_color: "#1D62EB",
       },
@@ -226,12 +221,27 @@ export const EXPERIENCE: Specialization[] = [
         name: "Kubernetes",
         glow_color: "#326CE4",
       },
-      // {
-      //   name: "Ansible",
-      // },
-      // {
-      //   name: "Terraform",
-      // },
+      {
+        name: "OpenTofu",
+        glow_color: "#F4D21B",
+      },
+      {
+        name: "Terraform",
+        glow_color: "#9F66D8",
+      },
+      {
+        name: "Ansible",
+        glow_color: "#CE1E02",
+      },
+      {
+        name: "CI/CD",
+        logo: "CICD",
+        glow_color: "#4E9F68",
+      },
+      {
+        name: "Linux",
+        glow_color: "#F3BC04",
+      },
       {
         name: "Nix(OS)",
         description: "I daily-drive it :)",
